@@ -2,10 +2,10 @@
   "containers": [
     {
       "name": "zhongjianh5",
-      "containerId": "4cd38b02bef096967290b8fd77e281eb46507595eb8507ecad94ec8153503805",
       "domain": "",
       "ip": "",
-      "mode": "compose"
+      "mode": "compose",
+      "containerId": "3e7da25be0236696a1d5f2c99d212d0a8484e79800ed340806f1cb5bfb2cdb1d"
     }
   ],
   "config": {
