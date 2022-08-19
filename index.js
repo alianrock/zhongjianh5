@@ -45,7 +45,6 @@ app.get("/api/count", async (req, res) => {
 
 // 小程序调用，获取微信 Open ID
 app.get("/api/wx_openid", async (req, res) => {
-  try {
     if (req.headers["x-wx-source"]) {
       const result = await request({
         method: 'POST',
@@ -64,11 +63,6 @@ app.get("/api/wx_openid", async (req, res) => {
         code: 400
       });
     }
-  } catch {
-    res.send({
-      code: 400
-    });
-  }
 });
 
 const port = process.env.PORT || 80;
