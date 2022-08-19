@@ -56,6 +56,7 @@ app.get("/api/wx_openid", async (req, res) => {
         })
       })
       console.log(result)
+      console.log(req.headers["x-wx-openid"])
       res.send(JSON.parse(result.response.body));
     } else {
       res.send({
