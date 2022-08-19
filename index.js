@@ -47,7 +47,7 @@ app.get("/api/count", async (req, res) => {
 app.get("/api/wx_openid", async (req, res) => {
     if (req.headers["x-wx-source"]) {
       const result = await request({
-        method: 'POST',
+        method: 'get',
         // url: 'http://api.weixin.qq.com/wxa/msg_sec_check?access_token=TOKEN',
         url: 'http://api.weixin.qq.com/sns/userinfo', // 这里就是少了一个token
         query: {
