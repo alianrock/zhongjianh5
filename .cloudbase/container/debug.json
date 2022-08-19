@@ -3,7 +3,9 @@
     {
       "name": "zhongjianh5",
       "domain": "",
-      "ip": ""
+      "ip": "",
+      "mode": "compose",
+      "containerId": "1297688cd160ea1266c76ee27b9bc1fcc89a179b7822f490396da58c1cfd679f"
     }
   ],
   "config": {
