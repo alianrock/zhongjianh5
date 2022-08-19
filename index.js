@@ -51,7 +51,7 @@ app.get("/api/wx_openid", async (req, res) => {
         // url: 'http://api.weixin.qq.com/wxa/msg_sec_check?access_token=TOKEN',
         url: 'http://api.weixin.qq.com/sns/userinfo', // 这里就是少了一个token
         query: {
-          lang: zh_CN,
+          lang: 'zh_CN',
           openid: req.headers["x-wx-openid"], // 可以从请求的 header 中直接获取 req.headers['x-wx-openid']
         }
       })
