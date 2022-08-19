@@ -50,10 +50,10 @@ app.get("/api/wx_openid", async (req, res) => {
       const result = await request({
         method: 'POST',
         // url: 'http://api.weixin.qq.com/wxa/msg_sec_check?access_token=TOKEN',
-        url: 'https://api.weixin.qq.com/wxa/servicemarket/connector/shop/userinfo/get', // 这里就是少了一个token
-        body: JSON.stringify({
+        url: 'https://api.weixin.qq.com/sns/userinfo', // 这里就是少了一个token
+        query: {
           openid: req.headers["x-wx-openid"], // 可以从请求的 header 中直接获取 req.headers['x-wx-openid']
-        })
+        }
       })
       console.log(result)
       console.log(req.headers["x-wx-openid"])
