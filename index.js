@@ -45,16 +45,27 @@ app.get("/api/count", async (req, res) => {
 
 // 小程序调用，获取微信 Open ID
 app.get("/api/wx_openid", async (req, res) => {
-  if (req.headers["x-wx-source"]) {
-    const result = await request({
-      method: 'POST',
-      // url: 'http://api.weixin.qq.com/wxa/msg_sec_check?access_token=TOKEN',
-      url: 'https://api.weixin.qq.com/wxa/servicemarket/connector/shop/userinfo/get', // 这里就是少了一个token
-      body: JSON.stringify({
-        openid: req.headers["x-wx-openid"], // 可以从请求的 header 中直接获取 req.headers['x-wx-openid']
+  try {
+    if (req.headers["x-wx-source"]) {
+      const result = await request({
+        method: 'POST',
+        // url: 'http://api.weixin.qq.com/wxa/msg_sec_check?access_token=TOKEN',
+        url: 'https://api.weixin.qq.com/wxa/servicemarket/connector/shop/userinfo/get', // 这里就是少了一个token
+        body: JSON.stringify({
+          openid: req.headers["x-wx-openid"], // 可以从请求的 header 中直接获取 req.headers['x-wx-openid']
+        })
       })
-    })
-    res.send(JSON.parse(result.response.body));
+      console.log(result)
+      res.send(JSON.parse(result.response.body));
+    } else {
+      res.send({
+        code: 400
+      });
+    }
+  } catch {
+    res.send({
+      code: 400
+    });
   }
 });
 
